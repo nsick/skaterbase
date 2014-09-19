@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  dob: 2014-09-18
+  city: MyString
+  state: 1
+  country: MyString
+  stance: 1
+  status: 1
+  height: 1
+  weight: 1
+
+two:
+  fname: MyString
+  lname: MyString
+  dob: 2014-09-18
+  city: MyString
+  state: 1
+  country: MyString
+  stance: 1
+  status: 1
+  height: 1
+  weight: 1

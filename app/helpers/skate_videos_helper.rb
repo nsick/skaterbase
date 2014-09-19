@@ -1,0 +1,2 @@
+module SkateVideosHelper
+end
