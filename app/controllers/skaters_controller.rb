@@ -9,8 +9,8 @@ class SkatersController < ApplicationController
 
 	private
 		def skater_params
-			params.require(:skater).permit(:fname, :lname, :dob, :city, :state, :country
+			params.require(:skater).permit(:fname, :lname, :dob, :city, :state, :country,
 				:stance, :status, :height, :weight)
 		end
-		
+
 end
