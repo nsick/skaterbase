@@ -1,0 +1,37 @@
+<p>
+	<strong>Skater:</strong>
+	<%= @skater.fullname %>
+</p>
+
+<p>
+	<strong>Age:</strong>
+	<%= @skater.age(@skater.dob) %>
+</p>
+
+<p>
+	<strong>From:</strong>
+	<%= @skater.origin %>
+</p>
+
+<p>
+	<strong>Stance:</strong>
+	<%= @skater.stance %>
+</p>
+
+<p>
+	<strong>Status:</strong>
+	<%= @skater.status %>
+</p>
+
+<p>
+	<strong>Height:</strong>
+	<%= @skater.height %>
+</p>
+
+<p>
+	<strong>Weight:</strong>
+	<%= @skater.weight %>
+</p>
+
+<%= link_to 'Add New Video Part', new_video_part_path %><br>
+<%= link_to 'Back', skaters_path %>

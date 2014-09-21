@@ -1,0 +1,35 @@
+<%= form_for @skate_video do |f| %>
+	<% if @skate_video.errors.any? %>
+	<div id="error_explanation">
+		<h3><%= pluralize(@skate_video.errors.count, "error") %> 
+			prohibited this skate video from being saved:</h3>
+		<ul>
+			<% @skate_video.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<p>
+		<%= f.label :videoname, 'Skate Video Title' %><br>
+		<%= f.text_field :videoname %>
+	</p>
+
+	<p>
+		<%= f.label :videoyear, 'Skate Video Year' %><br>
+		<%= f.text_field :videoyear %>
+	</p>
+
+	<p>
+		<%= f.label :videocompany, 'Skate Video Company' %><br>
+		<%= f.text_field :videocompany %>
+	</p>
+
+	<p style="margin-bottom:30px;"></p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

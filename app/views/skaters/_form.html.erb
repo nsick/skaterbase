@@ -1,0 +1,79 @@
+<%= form_for @skater do |f| %>
+	<% if @skater.errors.any? %>
+	<div id="error_explanation">
+		<h3><%= pluralize(@skater.errors.count, "error") %> 
+			prohibited this skater from being saved:</h3>
+		<ul>
+			<% @skater.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<table rules='none'>
+		<tr bgcolor=#DCDCDC>
+			<th align='left'><%= f.label :fname, 'First Name' %></th>
+			<th align='left'><%= f.label :lname, 'Last Name' %></th>
+			<th align='left'><%= f.label :dob, 'Date of Birth' %></th>
+		</tr>
+
+		<tr>
+			<td><%= f.text_field :fname %></td>
+			<td><%= f.text_field :lname %></td>
+			<td><%= f.text_field :dob %></td>
+		</tr>
+	</table>
+
+	<p style="margin-bottom:30px;"></p>
+
+	<table rules='none'>
+		<tr bgcolor=#DCDCDC>
+			<th align='left'><%= f.label :city, 'City of Origin' %></th>
+			<th align='left'><%= f.label :state, 'State of Origin (if USA)' %></th>
+			<th align='left'><%= f.label :country, 'Country of Origin' %><br></th>
+		</tr>
+
+		<tr>
+			<td><%= f.text_field :city %></td>
+			<td><%= f.select :state, [['AL',1],['VA',2],['NA',3]] %></td>
+			<td><%= f.text_field :country %></td>
+		</tr>
+
+	</table>
+
+	<p style="margin-bottom:30px;"></p>
+
+	<p>
+		<%= f.label :stance, 'Stance' %><br>
+		<%= f.select :stance, [['Regular',1],['Goofy',2]] %>
+	</p>
+
+	<p style="margin-bottom:30px;"></p>
+
+	<p>
+		<%= f.label :status, 'Professional Status' %><br>
+		<%= f.select :status, [['Professional',1],['Amateur',2],['Flow',3]] %>
+	</p>
+
+	<p style="margin-bottom:30px;"></p>
+
+	<table rules='none'>
+		<tr bgcolor=#DCDCDC>
+			<th align='left'><%= f.label :height, 'Height' %></th>
+			<th align='left'><%= f.label :weight, 'Weight' %></th>
+		</tr>
+
+		<tr>
+			<td><%= f.text_field :height %></td>
+			<td><%= f.text_field :weight %></td>
+		</tr>
+	</table>
+
+	<p style="margin-bottom:30px;"></p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

@@ -1,0 +1,25 @@
+<h2>Add New Video Part</h2>
+<%= form_for([@skater, @skater.video_parts.build]) do |f| %>
+	<p>
+		<%= f.label :videoname %><br>
+		<%= f.text_field :videoname %>
+	</p>
+	<p>
+		<%= f.label :runtime %><br>
+		<%= f.text_field :runtime %>
+	</p>
+	<p>
+		<%= f.label :song %><br>
+		<%= f.text_field :song %>
+	</p>
+	<p>
+		<%= f.label :runtime %><br>
+		<%= f.text_field :runtime %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', skater_path(skater) %>

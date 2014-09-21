@@ -1,0 +1,34 @@
+<div align='center'><h1>All Skate Videos</h1></div>
+
+<div style="margin-left:15px;"><h3><%= link_to 'Add New Videos', new_skate_video_path %></h3>
+
+	<table style="width:60%" { border: 1px solid black; border-collapse: collapse; }>
+		<caption>Skate Video List</caption>
+		<tr align='left'>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Year</th>
+			<th>Company</th>
+			<th colspan="2"></th>
+			<th colspan="2"></th>
+			<th colspan="2"></th>
+		</tr>
+
+		<% @skate_videos.each do |skate_video| %>
+			<tr>
+				<td><%= skate_video.id %></td>
+				<td><%= skate_video.videoname %></td>
+				<td><%= skate_video.videoyear %></td>
+				<td><%= skate_video.videocompany %></td>
+				<td><%= link_to 'Show', skate_video_path(skate_video) %></td>
+				<td><%= link_to 'Edit', edit_skate_video_path(skate_video) %></td>
+				<td><%= link_to 'Delete', skate_video_path(skate_video), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<p style="margin-bottom:150px;"></p>
+
+<div align='center'><%= link_to "Home", controller: 'welcome' %>
+	<%= link_to "New Skater", new_skater_path %></div>

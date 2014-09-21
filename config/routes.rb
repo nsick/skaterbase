@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :skaters
+  resources :skaters do
+    resources :video_parts
+  end
+
+  resources :skate_videos do
+    resources :video_parts
+  end
+
+  resources :video_parts
 
   #get 'welcome/index'
 
