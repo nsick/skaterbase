@@ -1,36 +1,36 @@
-<div align='center'><h1>All Skate Boarders</h1></div>
+<div align='center'><h1>All Skateboarders</h1></div>
 
-<div style="margin-left:15px;"><h3><%= link_to 'Add New Skater', new_skater_path %></h3>
-
-	<table style="width:60%" rules="none">
-		<thead>
-			<tr align='left' bgcolor=#DCDCDC>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Age</th>
-				<th>From</th>
-				<th colspan="2"></th>
-				<th colspan="2"></th>
-				<th colspan="2"></th>
-			</tr>
-		</thead>
-		<tbody>
-		<% @skaters.each do |skater| %>
-			<tr>
-				<td><%= skater.id %></td>
-				<td><%= skater.fullname %></td>
-				<td><%= skater.age(skater.dob) %></td>
-				<td><%= skater.origin %></td>
-				<td><%= link_to 'Show', skater_path(skater) %></td>
-				<td><%= link_to 'Edit', edit_skater_path(skater) %></td>
-				<td><%= link_to 'Delete', skater_path(skater), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
-		</tbody>
-		<% end %>
-	</table>
+<div style="margin-left:15px;"><h4><%= link_to 'Add New Skater', new_skater_path %></h4>
+	<div class="media">
+		<div class="media-body">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Age</th>
+						<th>From</th>
+						<th colspan="2"></th>
+						<th colspan="2"></th>
+						<th colspan="2"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @skaters.each do |skater| %>
+						<tr>
+							<td><%= skater.id %></td>
+							<td><%= skater.fullname %></td>
+							<td><%= skater.age(skater.dob) %></td>
+							<td><%= skater.origin %></td>
+							<td><%= link_to 'Show', skater_path(skater) %></td>
+							<td><%= link_to 'Edit', edit_skater_path(skater) %></td>
+							<td><%= link_to 'Delete', skater_path(skater), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
 <p style="margin-bottom:150px;"></p>
-
-<div align='center'><%= link_to "Home", controller: 'welcome' %>
-	<%= link_to "New Video", new_skate_video_path %></div>

@@ -9,7 +9,7 @@ class CreateVideoParts < ActiveRecord::Migration
 
       # these are the integer columns for the foreign key
       t.references :skater, index: true
-      t.references :skate_video, index: true
+      # t.references :skate_video, index: true
 
       t.timestamps
     end

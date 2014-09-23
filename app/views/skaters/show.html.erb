@@ -1,37 +1,107 @@
-<p>
-	<strong>Skater:</strong>
-	<%= @skater.fullname %>
-</p>
+<div style="margin-left:15px;">
 
-<p>
-	<strong>Age:</strong>
-	<%= @skater.age(@skater.dob) %>
-</p>
+	<h2><%= @skater.fullname %></h2>
 
-<p>
-	<strong>From:</strong>
-	<%= @skater.origin %>
-</p>
+	<div class="media">
+		<div class="media-body">
+			<table class="table table-hover">
+				<tr>
+					<td>Age:</td>
+					<td><%= @skater.age(@skater.dob) %></td>
+				</tr>
+				<tr>
+					<td>From:</td>
+					<td><%= @skater.origin %></td>
+				</tr>
+				<tr>
+					<td>Stance:</td>
+					<td><% if @skater.stance == 1 %>Regular
+							<% elsif @skater.stance == 2 %>Goofy
+							<% else %>Missing
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td>Status:</td>
+					<td><% if @skater.status == 1 %>Professional
+							<% elsif @skater.status == 2 %>Amateur
+							<% elsif @skater.status == 3 %>Flow
+							<% else %>Missing
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td>Height:</td>
+					<td><%= @skater.height %> in </td>
+				</tr>
+				<tr>
+					<td>Weight:</td>	
+					<td><%= @skater.weight %> lbs </td>
+				</tr>
+			</table>
+		</div>
+	</div>
 
-<p>
-	<strong>Stance:</strong>
-	<%= @skater.stance %>
-</p>
+	<p style="margin-bottom:50px;"></p>
 
-<p>
-	<strong>Status:</strong>
-	<%= @skater.status %>
-</p>
+	<h4>Video Parts</h4>
+	<div class="media">
+		<div class="media-body">
+			<table class="table table-hover">
+				<thead>
+						<td>Part Number</td>
+						<td>Skate Video</td>
+						<td>Artist</td>
+						<td>Song</td>
+						<td>Runtime</td>
+				</thead>
+				<tbody>
+					<% @skater.video_parts.each do |video_part| %>
+						<tr>
+							<td><%= video_part.id %></td>
+							<td><% if video_part.videoname == nil %>Missing
+									<% else %><%= video_part.videoname %>
+								<% end %></td>
+							<td><%= video_part.artist %></td>
+							<td><%= video_part.song %></td>
+							<td><%= video_part.runtime %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-<p>
-	<strong>Height:</strong>
-	<%= @skater.height %>
-</p>
+	<p style="margin-bottom:50px;"></p>
 
-<p>
-	<strong>Weight:</strong>
-	<%= @skater.weight %>
-</p>
+	<h5>Add New Video Part</h5>
+	<%= form_for([@skater, @skater.video_parts.build]) do |f| %>
+		<p>
+			<%= f.label :videoname %><br>
+			<%= f.text_field :videoname %>
+		</p>
+		<p>
+			<%= f.label :artist %><br>
+			<%= f.text_field :artist %>
+		</p>
+		<p>
+			<%= f.label :song %><br>
+			<%= f.text_field :song %>
+		</p>
+		<p>
+			<%= f.label :runtime %><br>
+			<%= f.text_field :runtime %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+</div>
 
-<%= link_to 'Add New Video Part', new_video_part_path %><br>
-<%= link_to 'Back', skaters_path %>
+<div align='center'>
+	<button type="button" class="btn btn-sm" >
+		<%= link_to 'Back', skaters_path %>
+	</button>
+</div>
+
+<p style="margin-top:15px;"></p>

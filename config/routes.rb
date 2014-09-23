@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :video_parts
   end
 
-  resources :video_parts
-
   #get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
